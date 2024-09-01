@@ -1,8 +1,10 @@
 class Api::AlertsController < ApplicationController
 
   def index
-    @alerts = current_user.alerts
-    render json: { alerts: @alerts }, status: :ok
+    status = params[:status].presence_in(Alert::STATUSES) || 'created'
+    page = params[:page] || 1
+    per_page = params[:per_page] || 10
+    @alerts = current_user.alerts.where(status: status).page(page).per(per_page)
   end
 
   def create

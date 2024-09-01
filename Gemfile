@@ -38,17 +38,17 @@ gem "bootsnap", require: false
 # Background processing with Sidekiq
 gem 'sidekiq'
 
-# Email sending with ActionMailer
-gem 'mail', '~> 2.7'
-gem 'actionmailer', '~> 7.0'
 
 # For handling JWT tokens
 gem 'jwt'              
 
+# For Websocket connection
 gem 'faye-websocket'
 
 gem 'eventmachine'
 
+# For handling pagination
+gem 'kaminari'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
