@@ -6,7 +6,7 @@ class Api::AlertsController < ApplicationController
   end
 
   def create
-    alert = current_user.alerts.create(alert_params)
+    alert = current_user.alerts.new(alert_params)
     if alert.save
       render json: { alert: alert }, status: :created
     else

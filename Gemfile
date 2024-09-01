@@ -45,6 +45,9 @@ gem 'actionmailer', '~> 7.0'
 # For handling JWT tokens
 gem 'jwt'              
 
+gem 'faye-websocket'
+
+gem 'eventmachine'
 
 
 group :development, :test do

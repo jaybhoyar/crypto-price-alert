@@ -95,6 +95,10 @@ GEM
       railties (>= 6.1)
     drb (2.2.1)
     erubi (1.13.0)
+    eventmachine (1.2.7)
+    faye-websocket (0.11.3)
+      eventmachine (>= 0.12.0)
+      websocket-driver (>= 0.5.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.5)
@@ -231,6 +235,8 @@ DEPENDENCIES
   bootsnap
   debug
   dotenv-rails
+  eventmachine
+  faye-websocket
   jbuilder
   jwt
   mail (~> 2.7)
