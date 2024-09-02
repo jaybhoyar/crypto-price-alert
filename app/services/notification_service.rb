@@ -1,6 +1,6 @@
 class NotificationService
   def self.send_alert_notification(alert, current_price)
-    message = "ALERT TRIGGERED: User #{alert.user_id}'s alert for #{alert.coin} has been triggered. " \
+    message = "ALERT TRIGGERED: User #{alert.email}'s alert for #{alert.coin} has been triggered. " \
               "Target price: $#{alert.target_price}, Current price: $#{current_price}"
 
     puts "\n#{message}\n"
