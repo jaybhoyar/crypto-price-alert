@@ -2,6 +2,17 @@
 
 This is a Crypto Price Alert Application built with Ruby on Rails. It allows users to create alerts for cryptocurrency prices and receive notifications when the target price is reached.
 
+## Application Flow
+
+When the application starts, it initializes the background processing system with Sidekiq. Specifically, it launches the `BinanceWebsocketWorker`, which starts the `BinanceWebsocketService` in the background.
+
+The `BinanceWebsocketService` establishes a WebSocket connection to Binance, allowing the application to receive real-time price updates for Bitcoin(default for now). As new price data is received, the service continuously checks the current price against the user's set alerts using the `AlertCheckService.check_alerts(price)` method.
+
+If the current price matches any of the user's alert targets, the `AlertCheckService` triggers the notification system. This system sends a console notification with details about the alert that has been triggered, including the user's email, the cryptocurrency, the target price, and the current price.
+
+This process ensures that users receive timely alerts when their specified price thresholds are met, keeping them informed of important price changes in real time.
+
+
 ## Prerequisites
 - Ruby v3.3.0
 - Postgres
